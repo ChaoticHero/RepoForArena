@@ -7,10 +7,12 @@ public class PlayerBehavior : MonoBehaviour
     public float moveSpeed = 10f;
     public float rotateSpeed = 75f;
     public float jumpVelocity = 5f;
+
     public float distanceToGround = 0.1f;
     public LayerMask groundLayer;
     public GameObject bullet;
     public float bulletSpeed = 100f;
+
     private float vInput;
     private float hInput;
     private Rigidbody _rb;
@@ -73,11 +75,15 @@ public class PlayerBehavior : MonoBehaviour
 
         // 5
         _rb.MoveRotation(_rb.rotation * angleRot);
+
+
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // 3
             _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
         }
+
     }
     private bool IsGrounded()
     {
@@ -92,5 +98,6 @@ public class PlayerBehavior : MonoBehaviour
 
         // 9
         return grounded;
+
     }
 }
