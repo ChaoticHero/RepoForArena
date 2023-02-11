@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 91512955}
   - component: {fileID: 91512954}
   - component: {fileID: 91512953}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 348989420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,6 +738,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 7.341, y: 53.794, z: 49.601}
+--- !u!1 &719613087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719613089}
+  - component: {fileID: 719613088}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &719613088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719613087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f966a253e5f50249a635fb88f0b87d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  labelText: Collect 1 item and win your freedom!
+  maxItems: 1
+  showWinScreen: 0
+--- !u!4 &719613089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719613087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.480948, y: 0.44835192, z: -5.212184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &738509557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1013,7 +1060,7 @@ GameObject:
   - component: {fileID: 776080967}
   - component: {fileID: 776080966}
   - component: {fileID: 776080965}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1208,7 +1255,7 @@ GameObject:
   - component: {fileID: 1405982243}
   - component: {fileID: 1405982242}
   - component: {fileID: 1405982241}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1305,7 +1352,7 @@ GameObject:
   - component: {fileID: 1442158755}
   - component: {fileID: 1442158754}
   - component: {fileID: 1442158753}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1522,6 +1569,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 75
+  jumpVelocity: 5
+  distanceToGround: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  bullet: {fileID: 8072203222851033114, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+  bulletSpeed: 100
 --- !u!54 &1564731574
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1617,6 +1671,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1636102386
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.7527204
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7564986
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.567079
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070304049982491186, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072203222851033114, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
+      propertyPath: m_Name
+      value: Bullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7f6729a006507e48b51ebc91cdf659b, type: 3}
 --- !u!1 &1964778441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,7 +1740,7 @@ GameObject:
   - component: {fileID: 1964778445}
   - component: {fileID: 1964778444}
   - component: {fileID: 1964778443}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1795,6 +1906,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 4598735888170794974, guid: dfe81eaf596d5e14e99a04140c256ee7, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 719613088}
     - target: {fileID: 5689380593198554376, guid: dfe81eaf596d5e14e99a04140c256ee7, type: 3}
       propertyPath: m_RootOrder
       value: 13
