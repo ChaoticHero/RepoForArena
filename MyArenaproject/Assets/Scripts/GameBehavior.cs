@@ -60,7 +60,21 @@ public class GameBehavior : MonoBehaviour, IManager
         lootStack.Push("Golden Key");
         lootStack.Push("Winged Boot");
         lootStack.Push("Mythril Bracers");
+        GameObject player = GameObject.Find("Player");
+
+        // 2
+        PlayerBehavior playerBehavior =
+            player.GetComponent<PlayerBehavior>();
+
+        // 3
+        playerBehavior.playerJump += HandlePlayerJump;
     }
+
+    public void HandlePlayerJump()
+    {
+        debug("Player has jumped...");
+    }
+
 
     public void LogWithDelegate(DebugDelegate del)
     {
@@ -152,7 +166,24 @@ public class GameBehavior : MonoBehaviour, IManager
             if (GUI.Button(new Rect(Screen.width / 2 - 100,
               Screen.height / 2 - 50, 200, 100), "You lose..."))
             {
-                Utilities.RestartLevel();
+                try
+                {
+                    Utilities.RestartLevel(-1);
+                    debug("Level restarted successfully...");
+                }
+                // 2
+                catch (System.ArgumentException e)
+                {
+                    // 3
+                    Utilities.RestartLevel(0);
+                    debug("Reverting to scene 0: " +
+                       e.ToString());
+                }
+                // 4
+                finally
+                {
+                    debug("Restart handled...");
+                }
             }
         }
     }

@@ -16,7 +16,7 @@ public static class Utilities
         return "Next time you'll be at number " + countReference;
     }
 
-    public static void RestartLevel()
+    public static void RestartLevel(int sceneIndex)
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1.0f;
@@ -24,6 +24,11 @@ public static class Utilities
         Debug.Log("Player deaths: " +playerDeaths);
         string message = UpdateDeathCount(ref playerDeaths);
         Debug.Log("Player deaths: "  +playerDeaths);
+        if (sceneIndex < 0)
+        {
+            // 2
+            throw new System.ArgumentException("Scene index cannot be negative");
+         }
     }
     public static bool RestartLevel(int sceneIndex)
     {

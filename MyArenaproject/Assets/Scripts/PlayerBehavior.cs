@@ -62,7 +62,7 @@ public class PlayerBehavior : MonoBehaviour
                                            bulletSpeed;
             playerJump();
         }
-    }
+    
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
             _rb.AddForce(Vector3.up * jumpVelocity,
