@@ -21,22 +21,28 @@ public static class Utilities
         SceneManager.LoadScene(0);
         Time.timeScale = 1.0f;
 
-        Debug.Log("Player deaths: " +playerDeaths);
+        Debug.Log("Player deaths: " + playerDeaths);
         string message = UpdateDeathCount(ref playerDeaths);
-        Debug.Log("Player deaths: "  +playerDeaths);
+        Debug.Log("Player deaths: " + playerDeaths);
+        if (sceneIndex < 0)
+        {
+            // 2
+            throw new System.ArgumentException("Scene index cannot be negative");
+        }
+
+    }
+    public static bool restartLevel(int sceneIndex)
+    {
+        // 1
         if (sceneIndex < 0)
         {
             // 2
             throw new System.ArgumentException("Scene index cannot be negative");
          }
-    }
-    public static bool RestartLevel(int sceneIndex)
-    {
-        // 2
+
         SceneManager.LoadScene(sceneIndex);
         Time.timeScale = 1.0f;
 
-        // 3
         return true;
     }
 }

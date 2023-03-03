@@ -168,7 +168,7 @@ public class GameBehavior : MonoBehaviour, IManager
             {
                 try
                 {
-                    Utilities.RestartLevel(-1);
+                    Utilities.restartLevel(-1);
                     debug("Level restarted successfully...");
                 }
                 // 2
