@@ -18,6 +18,10 @@ public class PlayerBehavior : MonoBehaviour
     private Rigidbody _rb;
     private CapsuleCollider _col;
     private GameBehavior _gameManager;
+    public delegate void JumpingEvent();
+
+    // 2
+    public event JumpingEvent playerJump;
 
     void Start()
     {
@@ -56,7 +60,9 @@ public class PlayerBehavior : MonoBehaviour
             // 5
             bulletRB.velocity = this.transform.forward *
                                            bulletSpeed;
+            playerJump();
         }
+    }
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
             _rb.AddForce(Vector3.up * jumpVelocity,

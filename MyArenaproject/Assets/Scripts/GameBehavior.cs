@@ -7,12 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class GameBehavior : MonoBehaviour, IManager
 {
+    public delegate void DebugDelegate(string newText);
+
+    // 2
+    public DebugDelegate debug = Print;
+
     private string _state;
 
     public string labelText = "Collect all 4 items and win your freedom!";
 
-   
-   
+    public Stack<string> lootStack = new Stack<string>();
+
     public int maxItems = 4;
 
     public string State
@@ -26,15 +31,47 @@ public class GameBehavior : MonoBehaviour, IManager
     void Start()
     {
         Initialize();
+        InventoryList<string> inventoryList = new
+           InventoryList<string>();
+        inventoryList.SetItem("Potion");
+        Debug.Log(inventoryList.item);
+    }
+
+    public void PrintLootReport()
+    {
+        var currentItem = lootStack.Pop();
+
+        var nextItem = lootStack.Peek();
+
+        Debug.LogFormat("You got a {0}! You've got a good chance of finding a {1} next!", currentItem, nextItem);
+
+        Debug.LogFormat("There are {0} random loot items waiting for you!", lootStack.Count);
     }
 
     public void Initialize()
     {
+        debug(_state);
         _state = "Manager initialized..";
         _state.FancyDebug();
         Debug.Log(_state);
+        LogWithDelegate(debug);
+        lootStack.Push("Sword of Doom");
+        lootStack.Push("HP+");
+        lootStack.Push("Golden Key");
+        lootStack.Push("Winged Boot");
+        lootStack.Push("Mythril Bracers");
     }
 
+    public void LogWithDelegate(DebugDelegate del)
+    {
+        // 3
+        del("Delegating the debug task...");
+    }
+
+    public static void Print(string newText)
+    {
+        Debug.Log(newText);
+    }
     public int Items
     {
         get { return _itemsCollected; }
