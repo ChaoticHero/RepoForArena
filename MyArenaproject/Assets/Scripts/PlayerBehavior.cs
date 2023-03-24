@@ -67,6 +67,7 @@ public class PlayerBehavior : MonoBehaviour
         {
             _rb.AddForce(Vector3.up * jumpVelocity,
                 ForceMode.Impulse);
+            playerJump();
         }
         // 2
         Vector3 rotation = Vector3.up * hInput;
